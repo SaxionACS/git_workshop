@@ -608,7 +608,7 @@ $ git push
 * Maak nieuwe Github "organisatie" aan
     * bijv. naam van je school of vak of project
 * Vraag korting aan: [https://education.github.com/discount_requests/new](https://education.github.com/discount_requests/new)
-* Je kaan ook koorting voor jouw peersonlijke account aanvragen.
+* Je kan ook korting voor jouw persoonlijke account aanvragen.
 
 ## GitHub classroom
 
