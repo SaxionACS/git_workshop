@@ -102,7 +102,7 @@ $ git config --global core.editor "code --wait"
 $ git config --list
 ```
 
-# Locaal versiebeheer
+# Lokaal versiebeheer
 
 ## Initialiseer repository
 
@@ -124,15 +124,11 @@ nothing to commit (create/copy files
 
 Er zijn drie toestanden waarin bestanden zich kunnen bevinden:
 
-* _gecommit_ ('commited'),
 * _gewijzigd_ ('modified'),
-* _voorbereid_ voor een commit ('staged')
+* * _voorbereid_ voor een commit ('staged')
+* _gecommit_ ('commited'),
 
 ## Drie toestanden
-
-\begin{block}{Committed}
-Alle data zit veilig in de lokale database
-\end{block}
 
 \begin{block}{Modified}
 Een bestand is gewijzigd maar nog niet naar de database gecommit
@@ -141,6 +137,16 @@ Een bestand is gewijzigd maar nog niet naar de database gecommit
 \begin{block}{Staged}
 Een aangepast bestand wordt in de volgende commit meegenomen
 \end{block}
+
+\begin{block}{Committed}
+Alle data zit veilig in de lokale database
+\end{block}
+
+## Git workflow & omgeving
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{./images/git_workflow.pdf}
+\end{center}
 
 ## Werkomgeving
 
@@ -156,12 +162,6 @@ De directorystructuur en bestanden waarin je wijzigingen aanbrengt
 ### Repository
 
 Verzameling (backup database) van alle commits, branches, tags, ...
-
-## Git workflow
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{./images/git_workflow.pdf}
-\end{center}
 
 ## Eerste commit
 
@@ -260,7 +260,8 @@ Date:   Thu Apr 11 14:56:28 2019 +0200
 ```
 
 Het originele bestand blijft ook in de map zitten.
-Telkens ook in de Staging Area.
+
+Trouwens ook in de Staging Area.
 
 ## Laten we iets aanpassen
 
@@ -299,7 +300,7 @@ Changes to be committed:
         modified:   readme.txt
 ```
 
-## `git add`
+## `git add .`
 
 ```bash
 $ git add .
@@ -310,7 +311,7 @@ $ git add .
   (door zijn namen te vermelden)
 * **Let op!** Werkt enkel *binnen* de directory met repository
 
-## Staging area na `git add`
+## Staging area na `git add .`
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./images/git_workflow_add_dot.pdf}
@@ -410,7 +411,7 @@ af84a5e readme.txt added
 $ git checkout af84a5e -- readme.txt
 ```
 
-## De situatie ne de checkout
+## De situatie na de checkout
 
 ```bash
 $ git status
@@ -421,17 +422,17 @@ Changes to be committed:
         modified:   readme.txt
 ```
 
-## De situatie ne de checkout
+## De situatie na de checkout
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./images/git_workflow_after_timemachine_1.pdf}
 \end{center}
 
-## De situatie ne de checkout: wat nu?
+## De situatie na de checkout: wat nu?
 
-Of: nieuwe wijzijgine aanbrengen,
+Of: nieuwe wijzigingen aanbrengen,
 
-   vevolgd door `git add .` & `git commit`
+   vervolgd  door `git add .` & `git commit`
 
 Of: direct commiten
 
@@ -441,7 +442,7 @@ $ git commit -m "readme.txt naar originele revisie"
  1 file changed, 1 deletion(-)
 ```
 
-## De situatie ne de checkout en commit
+## De situatie na de checkout en commit
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./images/git_workflow_after_timemachine_2.pdf}
@@ -490,26 +491,26 @@ af84a5e readme.txt added
 
 ### Public
 
-Iedereen kan de bestanden zien en kopiereen (maar niet wijzijgen).
+Iedereen kan de bestanden zien en kopiëren (maar niet wijzigen).
 
-Alleen de eigenaar en de team leden kunnen de bestaned aanpassen.
+Alleen de eigenaar en de teamleden kunnen de bestanden aanpassen.
 
 ### Private
 
-Alleen de eigenaar en de team leden kunnen de bestanden zien, kopieren of aanpassen.
+Alleen de eigenaar en de teamleden kunnen de bestanden zien, kopiëren of aanpassen.
 
-## Lokaal <-> Remote
+## Lokaal en remote koppelen
 
 \begin{center}
 \includegraphics[width=1.0\textwidth]{./images/github_instructions.png}
 \end{center}
 
-## Verbinding maken met een bestaande lokale repo
+## Een bestande repo met een remote koppelen
 
 ```bash
-git remote add origin
+$ git remote add origin
     https://github.com/SaxionACS/git_workshop.git
-git push -u origin master
+$ git push -u origin master
 ```
 
 ## Alternatief: remote clonen naar een nieuwe map
@@ -540,7 +541,7 @@ origin
 
 ## Wat nou
 
-Het hangt af:
+Het hangt eraf:
 
 * Solo gebruiker
 * Team gebruiker
@@ -567,9 +568,9 @@ $ git push
 
 ## Remote voor een team: initializatie
 
-Iederen moet zijn lokale repo naar dezelfde remote verwijzen.
+Iedereen moet zijn lokale repo naar dezelfde remote verwijzen.
 
-Een person zorgt voor de initializatie van de remote repository.
+Één person zorgt voor de initialisatie van de remote repository.
 
 Dan:
 
@@ -579,7 +580,6 @@ $ git clone
 ```
 
 ## Remote voor een team: workflow
-
 
 ```bash
 $ git pull --rebase
@@ -638,4 +638,6 @@ $ git push
 - Discussies opvolgen
 - Project plannen
 
-# Demo
+## Demo & vragen
+
+### Tijd voor demo & vragen
