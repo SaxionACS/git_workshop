@@ -3,17 +3,46 @@ title: Git en versiebeheer
 subtitle: niet alleen voor coders
 author: Dawid Zalewski
 date: \today{}
-theme: Dresden
+# theme: Dresden
 colortheme: default
 fontfamily: noto-sans
 header-includes:
-- \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+- \usepackage{cmbright}
+- \usepackage{pgf}
+- \usepackage{tikz}
+- \usepackage{textpos}
 
-# - \usepackage{cmbright}
-# - \useoutertheme{infolines}
+
+- \useoutertheme{infolines}
+- \useoutertheme[subsection=false]{miniframes}
+
+# - \addtobeamertemplate{frametitle}{}{ \begin{textblock*}{100mm}(0.9\textwidth,-1.25cm) \includegraphics[height=0.55cm,keepaspectratio]{logo.png} \end{textblock*}}
+- \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+- \useinnertheme{circles}
+
+- \definecolor{text}{RGB}{0, 0, 0}
+- \definecolor{text_light}{RGB}{68, 84, 106}
+- \definecolor{sax_green}{RGB}{0, 156, 130}
+- \definecolor{sax_red}{RGB}{206, 21, 79}
+- \definecolor{sax_grey}{RGB}{186, 186, 186}
+- \definecolor{sax_blue}{RGB}{0, 144, 179}
+
+- \setbeamercolor{palette primary}{fg=white,bg=sax_green}
+- \setbeamercolor{palette secondary}{fg=white,bg=sax_green}
+- \setbeamercolor{palette tertiary}{fg=text_light,bg=sax_green}
+- \setbeamercolor{palette quaternary}{fg=blue, bg=sax_green}
+- \setbeamercolor{structure}{fg=sax_red} # itemize, enumerate, etc
+- \setbeamercolor{section in toc}{fg=white, bg=white} # TOC sections
+- \setbeamercolor{subsection in head/foot}{bg=sax_green,fg=text_light}
+- \setbeamercolor{section in head/foot}{bg=sax_green,fg=text_light}
+
+- \newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+
 # - \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{wallpaper2.png}}
 classoption:
    - compress
+   - xcolor=dvipsnames
 fontsize: 11pt
 aspectratio: 43
 colorlinks: true
@@ -64,7 +93,7 @@ Git is een *gedistribueerd* versiebeheersysteem
   * Pak de juiste versie voor jouw systeem,
   * Inclusief *Git Bash* (alleen Windows)
 * GUI tool: [http://git-scm.com/downloads/guis](http://git-scm.com/downloads/guis)
-    * bv. [Github Desktop](https://desktop.github.com/)
+    * Bijv. [Github Desktop](https://desktop.github.com/)
 
 \begin{block}{Info}
 \center{Wij gaan (proberen) geen GUI tools te gebruiken.}
@@ -125,7 +154,7 @@ nothing to commit (create/copy files
 Er zijn drie toestanden waarin bestanden zich kunnen bevinden:
 
 * _gewijzigd_ ('modified'),
-* * _voorbereid_ voor een commit ('staged')
+* _voorbereid_ voor een commit ('staged')
 * _gecommit_ ('commited'),
 
 ## Drie toestanden
@@ -156,8 +185,9 @@ De directorystructuur en bestanden waarin je wijzigingen aanbrengt
 
 ### Staging Area
 
-* *Tussenstation* tussen **working directory** en **repository**
-* Laat toe wijzigingen selectief te *committen*
+*Tussenstation* tussen **working directory** en **repository**
+
+Laat toe wijzigingen selectief te *committen*
 
 ### Repository
 
@@ -259,7 +289,9 @@ Date:   Thu Apr 11 14:56:28 2019 +0200
     readme.txt toegevoegd
 ```
 
-Het originele bestand blijft ook in de map zitten.
+
+
+Het originele bestand blijft in de map zitten.
 
 Trouwens ook in de Staging Area.
 
@@ -344,7 +376,7 @@ Maak een nieuwe file aan (bijv. info.txt) en:
 * Voeg hem aan de Staging Area toe.
 * Commit hem.
 
-##
+## Een bestandje verder (code)
 
 ~~~bash
 $ touch info.txt
@@ -596,7 +628,7 @@ $ git push
 ## Werken met remote
 
 \begin{center}
-\includegraphics[width=1.0\textwidth]{./images/git_workflow_remote.pdf}
+\includegraphics[width=0.9\textwidth]{./images/git_workflow_remote.pdf}
 \end{center}
 
 # GitHub voor onderwijs
