@@ -1,13 +1,13 @@
 ---
 title: Git en versiebeheer
 subtitle: niet alleen voor coders
-author: Dawid Zalewski
+author: Dawid Zalewski & Ronald Tangelder
 date: \today{}
 # theme: Dresden
 colortheme: default
 fontfamily: noto-sans
 header-includes:
-- \usepackage{cmbright}
+- \usepackage{lmodern}
 - \usepackage{pgf}
 - \usepackage{tikz}
 - \usepackage{textpos}
@@ -103,7 +103,7 @@ Git is een *gedistribueerd* versiebeheersysteem
 
 Git moet weten wie jij bent:
 
-```bash
+```console
 $ git config --global user.name "Dawid Zalewski"
 $ git config --global user.email "d.r.zalewski@saxion.nl"
 ```
@@ -114,20 +114,20 @@ Je kan ook de default tekst editor aanpassen:
 
 Voor Notepad++:
 
-```bash
+```console
 $ git config --global core.editor 
 "'notepad++.exe' -multiInst -nosession"
 ```
 
 For Visual Studio Code:
 
-```bash
+```console
 $ git config --global core.editor "code --wait"
 ```
 
 ## Aan de slag - controleer de instellingen
 
-```bash
+```console
 $ git config --list
 ```
 
@@ -135,7 +135,7 @@ $ git config --list
 
 ## Initialiseer repository
 
-```bash
+```console
 $ mkdir my_project
 $ cd my_project/
 $ git init
@@ -199,7 +199,7 @@ Maak een nieuw bestand aan (readme.txt) in de `my_project` map
 
 Voor VS Code gebruikers:
 
-```bash
+```console
 $ code readme.txt
 ```
 
@@ -207,7 +207,7 @@ $ code readme.txt
 
 ## Contoleer
 
-```bash
+```console
 $ ls -l
 
 total 1
@@ -216,7 +216,7 @@ total 1
 
 ## Git status
 
-```bash
+```console
 $ git status
 On branch master
 
@@ -240,7 +240,7 @@ nothing added to commit but untracked files present
 
 ## Naar de *Staging Area*: `git add`
 
-```bash
+```console
 $ git add readme.txt
 $ git status
 On branch master
@@ -261,7 +261,7 @@ Changes to be committed:
 
 ## Een commit toevoegen: `git commit`
 
-```bash
+```console
 $ git commit -m "readme.txt toegevoegd"
 [master (root-commit) af84a5e] readme.txt toegevoegd
  1 file changed, 1 insertion(+)
@@ -280,11 +280,11 @@ nothing to commit, working tree clean
 
 ## Even checken
 
-```bash
+```console
 $ git log
 commit af84a5e... (HEAD -> master)
 Author: Dawid Zalewski <d.r.zalewski@saxion.nl>
-Date:   Thu Apr 11 14:56:28 2019 +0200
+Date:   Wed Aug 11 14:56:28 2021 +0200
 
     readme.txt toegevoegd
 ```
@@ -299,7 +299,7 @@ Trouwens ook in de Staging Area.
 
 Open `readme.txt` en voeg wat tekst toe / pas iets aan.
 
-```bash
+```console
 $ git status
 On branch master
 Changes not staged for commit:
@@ -322,7 +322,7 @@ no changes added to commit
 
 ## Alweer naar de Staging Area
 
-```bash
+```console
 $ git add .
 $ git status
 On branch master
@@ -334,7 +334,7 @@ Changes to be committed:
 
 ## `git add .`
 
-```bash
+```console
 $ git add .
 ```
 
@@ -355,7 +355,7 @@ git erkent slechts dat hij ook voor het commiten klaar is.
 
 ## Wijzigingen commiten
 
-```bash
+```console
 $ git commit -m "een regel in readme.txt toegevoegd"
 [master 3d6f93c] een regel in readme.txt toegevoegd
  1 file changed, 1 insertions(+), 0 deletion(-)
@@ -398,7 +398,7 @@ $ git log --oneline
 
 Er zitten wijzigingen in een bestand (bijv. `info.txt`) die je ongedaan wilt maken.
 
-```bash
+```console
 $ git status
 On branch master
 Changes not staged for commit:
@@ -418,7 +418,7 @@ Changes not staged for commit:
 
 ## Locale wijzigingen ongedaan maken
 
-```bash
+```console
 $ git checkout -- info.txt
 
 $ git status
@@ -434,7 +434,7 @@ nothing to commit, working tree clean
 
 ## Een bestand naar een eerdere revisie zetten
 
-```bash
+```console
 $ git log --oneline
 303da9c (HEAD -> master) info.txt toegevoegd
 3d6f93c readme updated
@@ -445,7 +445,7 @@ $ git checkout af84a5e -- readme.txt
 
 ## De situatie na de checkout
 
-```bash
+```console
 $ git status
 On branch master
 Changes to be committed:
@@ -468,7 +468,7 @@ Of: nieuwe wijzigingen aanbrengen,
 
 Of: direct commiten
 
-```bash
+```console
 $ git commit -m "readme.txt naar originele revisie"
 [master 4000548] readme.txt naar originele revisie
  1 file changed, 1 deletion(-)
@@ -482,7 +482,7 @@ $ git commit -m "readme.txt naar originele revisie"
 
 ## Even controlleren...
 
-```bash
+```console
 $ git log --oneline
 4000548 (HEAD -> master) readme.txt naar originele revisie
 303da9c info.txt toegevoegt
@@ -539,7 +539,7 @@ Alleen de eigenaar en de teamleden kunnen de bestanden zien, kopiëren of aanpas
 
 ## Een bestande repo met een remote koppelen
 
-```bash
+```console
 $ git remote add origin
     https://github.com/SaxionACS/git_workshop.git
 $ git push -u origin master
@@ -547,7 +547,7 @@ $ git push -u origin master
 
 ## Alternatief: remote clonen naar een nieuwe map
 
-```bash
+```console
 $ mkdir my_project
 $ cd my_project
 $ git clone 
@@ -562,7 +562,7 @@ $ git clone
 
 ## Is het gelukt?
 
-```bash
+```console
 $ git remote -v
 
 origin  
@@ -580,7 +580,7 @@ Het hangt eraf:
 
 ## Remote voor een solo gebruiker
 
-```bash
+```console
 $ git pull
 [bewerk bestanden]
 $ git status
@@ -606,14 +606,14 @@ Iedereen moet zijn lokale repo naar dezelfde remote verwijzen.
 
 Dan:
 
-```bash
+```console
 $ git clone 
   https://github.com/SaxionACS/git_workshop.git
 ```
 
 ## Remote voor een team: workflow
 
-```bash
+```console
 $ git pull --rebase
 [bewerk bestanden]
 $ git status
