@@ -1,5 +1,5 @@
 ---
-title: Git en version control
+title: Git & version control
 subtitle: not only for software engineers
 author: Dawid Zalewski & Ronald Tangelder
 date: \today{}
